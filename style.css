@@ -215,3 +215,29 @@ img{
     background: rgb(223, 211, 180);
     
 }
+
+.error input:not(.check,.boton),.error select{
+    border: 2px solid #ff0000;
+}
+
+.error-text{
+    color: #ff0000;
+    font-size: 0.8rem;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+.gallery {
+    display: flex;
+    overflow-x: auto; /* Permitir desplazamiento horizontal */
+    gap: 10px;
+    padding: 10px;
+    scroll-snap-type: x mandatory; /* Hacer que cada imagen se detenga en el borde */
+    -webkit-overflow-scrolling: touch; /* Desplazamiento suave en dispositivos iOS */
+}
+.gallery img {
+    flex: 0 0 auto; /* Evitar que las imágenes se redimensionen */
+    scroll-snap-align: start; /* Alinear cada imagen al inicio */
+    max-width: 100%; /* Asegurar que las imágenes no sean más grandes que el contenedor */
+    cursor: pointer; /* Cambiar el cursor al pasar por encima */
+}
