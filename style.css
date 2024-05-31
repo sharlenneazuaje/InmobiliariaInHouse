@@ -241,3 +241,8 @@ img{
     max-width: 100%; /* Asegurar que las imágenes no sean más grandes que el contenedor */
     cursor: pointer; /* Cambiar el cursor al pasar por encima */
 }
+
+.gallery-item {
+    max-width: 100%; /* Establece el ancho máximo al 100% del contenedor */
+    height: auto; /* Hace que la altura se ajuste automáticamente al ancho */
+}
