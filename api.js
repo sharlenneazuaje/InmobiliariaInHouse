@@ -1,33 +1,30 @@
-import { createClient } from 'pexels-api-wrapper';
+// Clave de la API de Unsplash (reemplázala con tu propia clave)
+const accessKey = 'TOShguRGC-RrWZtWjgoXjumS1Wy4toV5c7UGOYQPc6U';
 
-const client = createClient('G2nb7xwxWA4pSJtYzjpfDR3HTuGjHOVhsGfI0eKhXo2mb3FjFw0D9zGY'); // Reemplaza 'YOUR_API_KEY' con tu clave API de Pexels
-const query = 'Property';
-const perPage = 10;
+// URL base de la API de Unsplash
+const apiUrl = `https://api.unsplash.com/photos/random?client_id=${accessKey}&query=real+estate&count=10`;
 
+// Elemento donde se mostrarán las imágenes
 const gallery = document.getElementById('gallery');
 
-client.photos.search({ query, per_page: perPage })
-    .then(photos => {
-        photos.forEach(photo => {
+// Función para obtener y mostrar imágenes desde la API de Unsplash
+async function fetchImages() {
+    try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+
+        // Iterar sobre las imágenes y agregarlas al DOM
+        data.forEach(photo => {
             const img = document.createElement('img');
-            img.src = photo.src.large; // Ajusta el tamaño de la imagen según tus necesidades
-            img.alt = photo.photographer;
+            img.src = photo.urls.regular;
+            img.alt = photo.alt_description;
             img.classList.add('gallery-item');
             gallery.appendChild(img);
         });
+    } catch (error) {
+        console.error('Error al obtener las imágenes:', error);
+    }
+}
 
-        // Añadir evento de clic para desplazarse a la siguiente imagen
-        const galleryItems = document.querySelectorAll('.gallery-item');
-        galleryItems.forEach(item => {
-            item.addEventListener('click', () => {
-                const scrollOffset = item.offsetLeft - gallery.scrollLeft;
-                gallery.scrollBy({
-                    left: scrollOffset,
-                    behavior: 'smooth'
-                });
-            });
-        });
-    })
-    .catch(error => {
-        console.error('Error al buscar imágenes:', error);
-    });
+// Llamar a la función para cargar las imágenes al cargar la página
+window.addEventListener('load', fetchImages);
