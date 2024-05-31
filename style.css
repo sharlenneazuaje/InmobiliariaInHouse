@@ -3,11 +3,6 @@ body{
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-img{
-    width: 270px; /* Establece el ancho máximo al 100% del contenedor */
-    height: 200px;
-
-}
 
 .carousel{
     margin-bottom: 90px;
@@ -236,9 +231,10 @@ img{
     -webkit-overflow-scrolling: touch; /* Desplazamiento suave en dispositivos iOS */
 }
 .gallery img {
+    width: 270px; /* Establece el ancho máximo al 100% del contenedor */
+    height: 200px;
     flex: 0 0 auto; /* Evitar que las imágenes se redimensionen */
     scroll-snap-align: start; /* Alinear cada imagen al inicio */
-    max-width: 100%; /* Asegurar que las imágenes no sean más grandes que el contenedor */
     cursor: pointer; /* Cambiar el cursor al pasar por encima */
 }
 
