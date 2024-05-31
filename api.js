@@ -1,7 +1,7 @@
 import { createClient } from 'pexels-api-wrapper';
 
 const client = createClient('G2nb7xwxWA4pSJtYzjpfDR3HTuGjHOVhsGfI0eKhXo2mb3FjFw0D9zGY'); // Reemplaza 'YOUR_API_KEY' con tu clave API de Pexels
-const query = 'Inmuebles';
+const query = 'Property';
 const perPage = 10;
 
 const gallery = document.getElementById('gallery');
